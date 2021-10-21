@@ -1,9 +1,7 @@
-
-
 const PRONOUN= ['the','our'];
 const ADJETIVE = ['great', 'big' ];
 const NOUN = ['jogger','racoon', 'wacom','suspicious', 'sitcom', 'italia'];
-const EXTENSION =['.com', '.net', '.us', '.it']
+const EXTENSION =['com', 'net', 'us', 'it']
 
 window.onload = () =>{
     let result = generator();
@@ -19,10 +17,11 @@ function generator() {
         for (let k in NOUN) {
           for (const l in EXTENSION) {
               let newExt = NOUN[k].slice(-EXTENSION[l].length);
+              console.log(newExt);
                   if ( newExt == EXTENSION[l]) {
-                    domain.push(PRONOUN[i].concat(ADJETIVE[j],(NOUN[k].slice(0,-EXTENSION[l].length)),EXTENSION[l]));
+                    domain.push(PRONOUN[i].concat(ADJETIVE[j],(NOUN[k].slice(0,-EXTENSION[l].length)),'.', EXTENSION[l]));
                   }else {
-                    domain.push(PRONOUN[i].concat(ADJETIVE[j],NOUN[k],EXTENSION[l])); 
+                    domain.push(PRONOUN[i].concat(ADJETIVE[j],NOUN[k],'.', EXTENSION[l])); 
                   }
           }
         }
@@ -59,6 +58,4 @@ function generator() {
 // }
 
 // console.log(myName());
-
-
 
